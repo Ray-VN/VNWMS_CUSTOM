@@ -1,0 +1,29 @@
+# Python bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Django specific
+db.sqlite3
+*.log
+
+# Local environment
+.env
+.venv
+venv/
+env/
+__pycache__/
+
+# IDEs
+.idea/
+.vscode/
+
+# Mac system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Python virtual environment (if it's in the root directory)
+venv/
