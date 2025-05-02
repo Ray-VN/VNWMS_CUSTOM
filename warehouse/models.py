@@ -8,7 +8,7 @@ class Warehouse(models.Model):
     wh_name = models.CharField(max_length=100)
     wh_bg = models.CharField(max_length=100, blank=True, null=True)
     wh_comment = models.CharField(max_length=100, blank=True, null=True)
-    create_at = timezone.now(),
+    create_at = models.DateTimeField(default=timezone.now)
     create_by = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
