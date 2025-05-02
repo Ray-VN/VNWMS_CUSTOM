@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Site{% endblock %}</title>
+{#    <link rel="stylesheet" href="{% static 'css/style.css' %}">#}
+</head>
+<body>
+    <header>
+        <h1>My Site</h1>
+        <nav>
+            <!-- menu -->
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+            <!-- content -->
+        {% endblock %}
+    </main>
+
+    <footer style="position: fixed; bottom: 0; left: 0; width: 100%; background: #eee;">
+        &copy; 2025
+    </footer>
+</body>
+</html>
