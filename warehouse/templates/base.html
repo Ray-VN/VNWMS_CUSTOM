@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}My Site{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap-5.2.3-dist/css/bootstrap.min.css' %}">
+
 </head>
 <body>
     <header>
-        <h1>My Site</h1>
         <nav>
             <!-- menu -->
+            test
         </nav>
+        <h1 class="text-center">{% block header %}{% endblock %}</h1>
+
     </header>
 
     <main>
@@ -25,6 +27,6 @@
         &copy; 2025
     </footer>
 
-    <script src="{% static 'bootstrap-5.2.3-dist/css/bootstrap.bundle.min.js' %}" ></script>
+    <script src="{% static 'bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js' %}" ></script>
 </body>
 </html>

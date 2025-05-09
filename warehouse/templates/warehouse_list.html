@@ -1,9 +1,71 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
-    <table class="table">
+{% block header %}Warehouse List{% endblock %}
 
-    </table>
+{% block content %}
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th>ID</th>
+                <th>Warehouse name</th>
+                <th>Comment</th>
+                <th>Background</th>
+                <th>Create at</th>
+                <th>Create by</th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+                {% for wh in warehouses %}
+                    <tr>
+                        <td>{{ wh.wh_code }}</td>
+                        <td>{{ wh.wh_name }}</td>
+                        <td>{{ wh.bg }}</td>
+                        <td>{{ wh.wh_comment }}</td>
+                        <td>{{ wh.create_at }}</td>
+                        <td>{{ wh.create_by }}</td>
+                        <td>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+                                Create
+                            </button>
+                        </td>
+                        <td></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Modal for creating new warehouse -->
+        <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createModalLabel">Create New Warehouse</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="wh_name" class="form-label">Warehouse Name</label>
+                                <input type="text" class="form-control" id="wh_name" name="wh_name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="bg" class="form-label">Background</label>
+                                <input type="text" class="form-control" id="bg" name="bg" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="wh_comment" class="form-label">Comment</label>
+                                <input type="text" class="form-control" id="wh_comment" name="wh_comment">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create Warehouse</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
 
